@@ -1,0 +1,2 @@
+class EmmendsController < ApplicationController
+end
