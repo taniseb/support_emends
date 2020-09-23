@@ -1,1 +1,6 @@
-index.html.erb
+<ul>
+  <% @emmends.each do |emmend| %>
+  <li> <%= "#{emmend.name} - Criado por  #{emmend.user.name}" %>
+    <% end %>
+  </li>
+</ul>
