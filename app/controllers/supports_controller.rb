@@ -1,2 +1,2 @@
-class SupportersController < ApplicationController
+class SupportsController < ApplicationController
 end
