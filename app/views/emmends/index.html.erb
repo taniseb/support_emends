@@ -1,6 +1,7 @@
 <ul>
   <% @emmends.each do |emmend| %>
   <li> <%= "#{emmend.name} - Criado por  #{emmend.user.name}" %>
+    <td><%= link_to 'Show', emmend %></td>
     <% end %>
   </li>
 </ul>
