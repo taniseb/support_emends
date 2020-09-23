@@ -1,7 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Nova Emenda', new_emmend_path %>
+
 <ul>
   <% @emmends.each do |emmend| %>
   <li> <%= "#{emmend.name} - Criado por  #{emmend.user.name}" %>
-    <td><%= link_to 'Show', emmend %></td>
+    <%= link_to 'Show', emmend %>
+    <%= link_to 'Edit', edit_emmend_path(emmend) %>
+    <%= link_to 'Destroy', emmend, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </li>
 </ul>
+
