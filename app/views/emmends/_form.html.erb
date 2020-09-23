@@ -3,13 +3,13 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :project %>
-    <%= f.input :thema %>
-    <%= f.input :name %>
-    <%= f.input :description %>
+    <%= f.input :thema, label: 'Tema', collection: ['Monopólio das Teles', 'Meio Ambiente', 'Saúde', 'Segurança Pública'] %>
+    <%= f.input :project, label: 'Projeto', collection: ['5G', 'Queimadas no Pantanal', 'Vacina Coronavírus', 'Unificação das Forças Policiais'] %>
+    <%= f.input :name, label: 'Nome' %>
+    <%= f.input :description, label: 'Descrição' %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= f.button :submit, 'Criar', class: 'btn btn-primary' %>
   </div>
 <% end %>

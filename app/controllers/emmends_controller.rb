@@ -25,7 +25,7 @@ class EmmendsController < ApplicationController
   # POST /emmends
   def create
     @emmend = Emmend.new(emmend_params)
-    @user = current_user
+    @emmend.user = current_user
 
     if @emmend.save
       redirect_to @emmend, notice: 'Emmend was successfully created.'
