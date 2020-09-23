@@ -12,6 +12,7 @@ class EmmendsController < ApplicationController
 
   def create
     @emmends = Emmend.new
+    @user=current_user
   end
 
 end
