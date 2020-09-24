@@ -6,8 +6,10 @@
   <% @emmends.each do |emmend| %>
   <li> <%= "#{emmend.name} - Criado por  #{emmend.user.name}" %>
     <%= link_to 'Show', emmend %>
-    <%= link_to 'Edit', edit_emmend_path(emmend) %>
-    <%= link_to 'Destroy', emmend, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% if current_user == emmend.user %>
+      <%= link_to 'Edit', edit_emmend_path(emmend) %>
+      <%= link_to 'Destroy', emmend, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     <% end %>
   </li>
 </ul>

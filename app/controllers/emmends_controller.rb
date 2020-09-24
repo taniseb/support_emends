@@ -45,6 +45,12 @@ class EmmendsController < ApplicationController
 
   # DELETE /emmends/1
   def destroy
+
+    if @emmend.user != current_user
+       redirect_to root_path, alert: 'Not authorized'
+       return
+     end
+
     @emmend.destroy
     redirect_to emmends_url, notice: 'Emmend was successfully deleted.'
   end
