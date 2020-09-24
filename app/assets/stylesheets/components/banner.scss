@@ -1,0 +1,41 @@
+.banner {
+  width: 80vw;
+  height: 500px;
+  display: flex;
+  margin: 100px auto;
+  justify-content: space-between;
+  color: white;
+
+    .banner-info {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      flex-basis: 50%;
+        h1 {
+          font-weight: bold;
+          font-size: 64px;
+            span {
+              display: block;
+              font-weight: lighter;
+              font-size: 56px;
+              color: #C7C8D9;
+            }
+        }
+        p {
+          color: #E3E4EB;
+          font-size: 16px;
+        }
+        h2 {
+          color: #E3E4EB;
+          font-size: 20px;
+        }
+        h3 {
+          color: white;
+          font-size: 12px;
+        }
+    }
+
+    img {
+      width: 40%;
+    }
+}
