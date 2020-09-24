@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :supports, only: [:destroy]
 
+  get '/user' => "emmends#home", :as => :user_root
+
 end
