@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
+ <%= form_tag emmends_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Encontre uma Emenda!"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 
 <%= link_to 'Nova Emenda', new_emmend_path %>
 

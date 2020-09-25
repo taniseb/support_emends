@@ -19,5 +19,9 @@
   <strong>Project:</strong>
   <%= @emmend.project %>
 </p>
-
+<%= @current_user %>
 <%= link_to 'Back', emmends_path %>
+
+<%= simple_form_for [@emmend,@support] do |f| %>
+<%= f.button :submit, class:'btn btn-primary'%>
+<% end %>
