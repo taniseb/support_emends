@@ -10,7 +10,7 @@
     border-radius: 8px;
     align-items: center;
     display: grid;
-    justify-content: center;
+    justify-content: space-around;
   }
   
 .card-trip h2 {
@@ -44,3 +44,10 @@
 .buscar {
   height: 0%;
 }
+
+.new  {
+  width: 50%;
+  height: 50%;
+  margin: 2% auto;
+}
+
