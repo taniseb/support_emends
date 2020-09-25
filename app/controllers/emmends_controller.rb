@@ -9,7 +9,7 @@ class EmmendsController < ApplicationController
     if params[:query].present?
       @emmends = Emmend.search_by_name_and_description_and_project_and_thema(params[:query])
     else
-       @emmends = Emmend.all
+      @emmends = Emmend.all
     end
   end
 
@@ -18,6 +18,9 @@ class EmmendsController < ApplicationController
     @support = Support.new
     @emmend = Emmend.find(params[:id])
     @current_user = current_user
+    @user_is_supporter = @emmend.supports.any? do |support|
+      support.supporter == current_user
+    end
   end
 
   # GET /emmends/new
