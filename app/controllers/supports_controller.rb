@@ -12,3 +12,4 @@ class SupportsController < ApplicationController
   end
 
 end
+
