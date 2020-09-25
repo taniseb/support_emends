@@ -6,7 +6,11 @@ class EmmendsController < ApplicationController
 
   # GET /emmends
   def index
-    @emmends = Emmend.all
+    if params[:query].present?
+      @emmends = Emmend.search_by_name_and_description_and_project_and_thema(params[:query])
+    else
+       @emmends = Emmend.all
+    end
   end
 
   # GET /emmends/1
