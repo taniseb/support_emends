@@ -11,10 +11,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <form class="form-inline my-2 my-lg-0">
-         <input class="form-control mr-sm-2" type="search" placeholder="Tema" aria-label="Search">
-         <button class="btn btn-flat my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
+      <%= form_tag emmends_path, class: "form-inline my-2 my-lg-0", method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control mr-sm-2",
+          placeholder: "Busque uma emenda"
+          %>
+        <%= submit_tag "Pesquisar", class: "btn btn-flat my-2 my-sm-0" %>
+      <% end %>
         <li class="nav-item">
           <%= link_to "Criar", new_emmend_path, class: "nav-link logo-margin" %>
         </li>
