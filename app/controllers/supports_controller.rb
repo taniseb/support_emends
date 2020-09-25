@@ -9,6 +9,8 @@ class SupportsController < ApplicationController
     @support.user_id = current_user.id
     @support.save
     redirect_to user_root_path
+
   end
 
 end
+
