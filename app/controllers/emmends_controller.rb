@@ -11,6 +11,9 @@ class EmmendsController < ApplicationController
 
   # GET /emmends/1
   def show
+    @support = Support.new
+    @emmend = Emmend.find(params[:id])
+    @current_user = current_user
   end
 
   # GET /emmends/new
