@@ -16,12 +16,18 @@
 </p>
 
 <p>
-  <strong>Project:</strong>
+  <strong>Projeto:</strong>
   <%= @emmend.project %>
 </p>
-<%= @current_user %>
+<p>
+  <strong>
+  <%= @emmend.supporters.count %>
+  Apoiadores
+  </strong>
+</p>
+
 <%= link_to 'Back', emmends_path %>
 
 <%= simple_form_for [@emmend,@support] do |f| %>
-<%= f.button :submit, class:'btn btn-primary'%>
+<%= f.button :submit,'Apoie Você Também!', class:'btn btn-primary'%>
 <% end %>
