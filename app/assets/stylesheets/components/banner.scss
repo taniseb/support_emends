@@ -1,10 +1,17 @@
+.banner-bg {
+  height: 100vh;
+  background-color: #28293D;
+}
+
 .banner {
   width: 80vw;
   height: 500px;
   display: flex;
-  margin: 100px auto;
+  margin: 0 auto;
+  // padding: 200px 0;
   justify-content: space-between;
   color: white;
+  background-color: #28293D;
 
     .banner-info {
       display: flex;
