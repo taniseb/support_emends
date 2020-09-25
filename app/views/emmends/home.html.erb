@@ -1,8 +1,13 @@
+
 <h1>página do usuário!</h1>
 <%= link_to 'Nova Emenda', new_emmend_path %>
 
 <div class="container">
    <div class="row">
+
+<div class="container mt-4">
+   <div class="row"> 
+
       <div class="col-md-3">
 
          <div class="card-trip">
@@ -13,7 +18,7 @@
                   <h2>Nome</h2>
                   <p>Descrição</p>
                   <br>
-                  <button class="btn btn-flat" type="submit">Criar</button>
+                  <%= link_to 'Criar', new_emmend_path, class: "btn btn-flat" %>
                </div>
             </div>
          </div>
@@ -29,7 +34,7 @@
                   <input class="form-control mr-sm-2 ml-3" width="8px" type="search" placeholder="Tema" aria-label="Search">
                   <br>
                   <br>
-                  <button class="btn btn-flat-search" type="submit">Buscar</button>
+                  <%= link_to 'Pesquisar', emmends_path, class: "btn btn-flat-search"%>
                   </form>
                </div>
             </div>
