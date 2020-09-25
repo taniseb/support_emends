@@ -15,39 +15,62 @@
 
 
 
-<ul>
-  <% @emmends.each do |emmend| %>
-  <li> <%= "#{emmend.name} - Criado por  #{emmend.user.name}" %>
-    <%= link_to 'Show', emmend %>
-      <% if current_user == emmend.user %>
-      <%= link_to 'Edit', edit_emmend_path(emmend) %>
-      <%= link_to 'Destroy', emmend, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+
+
+
+    <!-- table emmends
+
+    name
+    user.name
+
+    thema
+
+    description
+    project
+   -->
+
+
+
+
+
+
+
+
+<div class="container">
+
+  <div class="cards">
+
+    <% @emmends.each do |emmend| %>
+
+      <div class="card-category">
+        <%= "#{emmend.name} - Criado por  #{emmend.user.name}" %>
+        <%= link_to 'Show', emmend %>
+        <% if current_user == emmend.user %>
+          <%= link_to 'Edit', edit_emmend_path(emmend) %>
+          <%= link_to 'Destroy', emmend, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
     <% end %>
-  </li>
-</ul>
 
+  </div>
 
-
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),
-                                  rgba(0,0,0,0.3)),
-                                  url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  Breakfast
 </div>
 
 
 
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
-  </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Lunch
-  </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
-  </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
