@@ -34,3 +34,18 @@
 .btn-ghost:hover {
   opacity: 1;
 }
+
+.btn-delete {
+  color: white;
+  font-weight: lighter;
+  transition: opacity 0.2s ease;
+  padding: 48px 48px;
+  margin-top: 70px 70px;
+  font-size: 14px;
+
+}
+
+.btn-delete:hover {
+  opacity: 0.2;
+  color: gray;
+}
