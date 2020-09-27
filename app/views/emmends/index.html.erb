@@ -43,12 +43,41 @@
     <% @emmends.each do |emmend| %>
 
       <div class="card-category">
-        <%= "#{emmend.name} - Criado por  #{emmend.user.name}" %>
+
+        <div>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
+          <h2><%= "Avatar do #{emmend.user.name}" %></h2>
+        </div>
+
+        <div>
+          <h2><%= "#{emmend.project}" %></h2>
+        </div>
+
+        <div>
+          <h3><%= "#{emmend.thema}" %></h3>
+        </div>
+
+        <div class="my-5">
+          <h2><%= "#{emmend.name}" %></h2>
+        </div>
+
+        <div>
+          <p><%= "#{emmend.description}" %></p>
+        </div>
+
         <%= link_to 'Show', emmend %>
+
         <% if current_user == emmend.user %>
-          <%= link_to 'Edit', edit_emmend_path(emmend) %>
+
+
+          <%#= link_to 'Edit', edit_emmend_path(emmend), class: "btn btn-danger" %>
+
+          <%= link_to "Edit", edit_emmend_path(emmend), class: "btn btn-ghost" %>
+
           <%= link_to 'Destroy', emmend, method: :delete, data: { confirm: 'Are you sure?' } %>
+
         <% end %>
+
       </div>
     <% end %>
 

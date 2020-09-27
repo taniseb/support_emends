@@ -1,15 +1,15 @@
 require 'faker'
-10.times do
+2.times do
   user = User.new(name: Faker::Name.name, email:  Faker::Internet.email,
   password: 123456)
   user.save
-  rand(5..10).times do
+  rand(1..2).times do
     emmend = Emmend.new(
       user_id: user.id,
-      project: Faker::Coffee.intensifier,
-      thema: Faker::Coffee.variety,
-      name: Faker::Coffee.intensifier,
-      description: Faker::Coffee.notes
+      project: "Monopólio das Teles",
+      thema: "5G",
+      name: "Fora Monopólio",
+      description: "A qualidade do serviço precisa melhorar"
       )
     emmend.save
     Support.create(
