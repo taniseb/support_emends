@@ -19,30 +19,35 @@
       flex-direction: column;
       flex-basis: 50%;
         h1 {
+          font-family: Arial, Helvetica, sans-serif;
           font-weight: bold;
-          font-size: 65px;
+          font-size: 50px;
             span {
+              line-height: 0.6;
               display: block;
               font-weight: lighter;
-              font-size: 57px;
+              font-size: 48px;
               color: #C7C8D9;
             }
         }
         p {
+          margin-top: 10px;
           color: #E3E4EB;
-          font-size: 17px;
+          font-size: 14px;
+          text-align: justify;
         }
         h2 {
-          color: #E3E4EB;
-          font-size: 21px;
+          color: #8E90A6;
+          font-size: 16px;
         }
         h3 {
           color: white;
-          font-size: 13px;
+          font-size: 10px;
         }
     }
 
     img {
-      width: 40%;
+      width: 600px;
+      height: 500px;
     }
 }

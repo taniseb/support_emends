@@ -2,24 +2,29 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <center><h1>RELATE!</h1></center>
+  <div class="font-weight-bold display-4 text-center">
+  RELATE!
+  </div>
+  <br>
+  <br>
 
   <div class="form-inputs d-flex">
     
-    <div class="p-3">
+    <div class="w-50 p-2">
 
       <%= f.input :thema, label: 'Tema', collection: ['Monopólio das Teles', 'Meio Ambiente', 'Saúde', 'Segurança Pública'] %>
       <%= f.input :project, label: 'Projeto', collection: ['5G', 'Queimadas no Pantanal', 'Vacina Coronavírus', 'Unificação das Forças Policiais'] %>
 
     </div>
     
-    <div class="p-3">
+    <div class="w-100 p-2">
 
       <%= f.input :name, label: 'Nome' %>
       <%= f.input :description, label: 'Descrição' %>
 
       <div class="form-actions">
-        <%= f.button :submit, 'Criar', class: 'btn btn-primary' %>
+      <br>
+        <center><%= f.button :submit, 'Criar', class: 'btn btn-primary' %></center>
       </div>
 
     </div>  

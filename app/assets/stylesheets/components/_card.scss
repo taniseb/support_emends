@@ -98,6 +98,10 @@
   grid-gap: 32px;
 }
 
+.bold {
+  font-style: inherit;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

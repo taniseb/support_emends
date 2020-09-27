@@ -64,6 +64,16 @@ class EmmendsController < ApplicationController
     @emmend.destroy
     redirect_to emmends_url, notice: 'Emmend was successfully deleted.'
   end
+  def home
+    @supports = Support.all
+    @user_is_supporter = @supports.select do |support|
+      support.supporter == current_user
+    end
+    @emmends = Emmend.all
+    @user_created = @emmends.select do |emmend|
+      emmend.user == current_user
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

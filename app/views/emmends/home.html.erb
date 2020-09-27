@@ -1,8 +1,13 @@
+
 <h1>página do usuário!</h1>
 <%= link_to 'Nova Emenda', new_emmend_path %>
 
 <div class="container">
+   <div class="row">
+
+<div class="container mt-4">
    <div class="row"> 
+
       <div class="col-md-3">
 
          <div class="card-trip">
@@ -13,10 +18,10 @@
                   <h2>Nome</h2>
                   <p>Descrição</p>
                   <br>
-                  <button class="btn btn-flat" type="submit">Criar</button>
+                  <%= link_to 'Criar', new_emmend_path, class: "btn btn-flat" %>
                </div>
             </div>
-         </div>   
+         </div>
 
          <br>
 
@@ -29,36 +34,55 @@
                   <input class="form-control mr-sm-2 ml-3" width="8px" type="search" placeholder="Tema" aria-label="Search">
                   <br>
                   <br>
-                  <button class="btn btn-flat-search" type="submit">Buscar</button>
+                  <%= link_to 'Pesquisar', emmends_path, class: "btn btn-flat-search"%>
                   </form>
                </div>
             </div>
           </div>
 
-      </div>    
- 
+      </div>
+
       <div class="col-md-9">
 
          <div class="card-trip perfil">
-      
+
              <div class="text-trip">
 
                <div class="row">
 
                   <div class="col-md-4">
-      
+
                      <div>
-                        <h2>Buscar</h2>
-                        <p>Descrição</p>
+                      <% unless @user_is_supporter.empty? %>
+                        <h2>Minhas Emendas Curtidas!</h2>
+                       <ul>
+                        <p><% @user_is_supporter.each do |u| %>
+                          <li><strong><%= "#{u.emmend.name}" %> </strong><%= "#{u.emmend.description}" %> </li>
+                        <%end%>
+                        <% else %>
+                        <h2>Hora de Curtir Emendas!</h2>
+                        <% end %>
+
+                        </ul>
+
+                        </p>
                      </div>
 
-                  </div>   
+                  </div>
 
                   <div class="col-md-8">
 
                      <div>
-                        <h2>Buscar</h2>
-                        <p>Descrição</p>
+                      <% unless @user_created.empty? %>
+                        <h2>Minhas Emendas Criadas</h2>
+                        <p><% @user_created.each do |u| %>
+                          <li><strong><%= "#{u.name}" %> </strong><%= "#{u.description}" %> </li>
+                        <%end%>
+                        <% else %>
+                        <h2>Hora de Criar Emendas!</h2>
+                      <% end %>
+
+
                      </div>
 
                   </div>
@@ -89,9 +113,9 @@
                </ul>
             </nav>
          </div>
-      
+
       </div>
 
    </div>
 
-</div>   
+</div>
