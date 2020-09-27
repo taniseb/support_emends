@@ -26,7 +26,7 @@
   </strong>
 </p>
 
-<%= link_to 'Back', emmends_path %>
+<%= link_to 'Voltar', emmends_path %>
 <% if !@user_is_supporter %>
   <%= simple_form_for [@emmend,@support] do |f| %>
     <%= f.button :submit,'Apoie Você Também!', class:'btn btn-primary'%>

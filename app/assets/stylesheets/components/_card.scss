@@ -70,29 +70,53 @@
 
 
     h2 {
-      font-size: 30px;
+      font-size: 32px;
       font-weight: bold;
       margin: 0 auto;
       color: white;
     }
 
     .btn-show {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: lighter;
       margin: 0 auto;
       color: white;
     }
 
-    h4 {
+    h3 {
       font-size: 13px;
       font-weight: lighter;
       // margin: 70px;
       color: white;
     }
 
+    .clickable {
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .clickable i {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .clickable:hover i {
+      color: #52ACF4;
+    }
+
+    .clickable.active {
+      color: inherit;
+      border-color: inherit;
+
+    }
+
+    .clickable.active i {
+      // color: #52ACF4;
+       color: gold;
+    }
 
 }
-
 
 .cards {
   display: grid;
@@ -138,7 +162,6 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-
 
 
 
