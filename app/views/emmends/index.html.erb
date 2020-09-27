@@ -46,24 +46,24 @@
 
         <div>
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
-          <h2><%= "Avatar do #{emmend.user.name}" %></h2>
+         <!--  <h2><%#= "Avatar do #{emmend.user.name}" %></h2> -->
         </div>
 
-        <div>
+        <div class="card-project my-3" >
           <h2><%= "#{emmend.project}" %></h2>
         </div>
 
-        <div>
+        <div class="my-5">
           <h3><%= "#{emmend.thema}" %></h3>
         </div>
 
-        <div class="my-5">
-          <h2><%= "#{emmend.name}" %></h2>
-        </div>
+     <!--    <div class="my-5"> -->
+         <!--  <h2><%#= "#{emmend.name}" %></h2> -->
+       <!--  </div> -->
 
-        <div>
-          <p><%= "#{emmend.description}" %></p>
-        </div>
+        <!-- <div>
+          <p><%#= "#{emmend.description}" %></p>
+        </div> -->
 
         <%= link_to 'Show', emmend %>
 
