@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
- <%= form_tag emmends_path, method: :get do %>
-    <%= text_field_tag :query,
+ <%#= form_tag emmends_path, method: :get do %>
+    <%#= text_field_tag :query,
       params[:query],
       class: "form-control",
       placeholder: "Encontre uma Emenda!"
     %>
-    <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
-  <% end %>
+    <%#= submit_tag "Pesquisar", class: "btn btn-primary" %>
+  <%# end %>
 
 
-<%= link_to 'Nova Emenda', new_emmend_path %>
+<%#= link_to 'Nova Emenda', new_emmend_path %>
 
-<div class="container">
+<div class="container my-5">
 
   <div class="cards">
 
