@@ -11,6 +11,9 @@ class EmmendsController < ApplicationController
     else
       @emmends = Emmend.all
     end
+
+      @emmends = @emmends.order("updated_at DESC")
+
   end
 
   # GET /emmends/1
