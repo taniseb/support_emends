@@ -28,7 +28,26 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+const alvo = (event) => {
+  event.currentTarget.classList.toggle("active");
+};
+
+const escuta = (star) => {
+  star.addEventListener("click", alvo);
+};
+
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
 
+  // 1. Select all the grids of stars likes
+const clickmeStar = document.querySelectorAll(".clickable");
+
+
+if (clickmeStar) {
+  clickmeStar.forEach(escuta);
+}
+
 });
+
+
