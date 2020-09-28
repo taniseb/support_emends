@@ -1,37 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+
+<div class="row">
+
+<div class="card-trip new">
+
+<div class="col-md-12 p-5">
+
+<div class="font-weight-bold display-4 text-center">
+EMENDA
+</div>
+<div class="font-weight display-6 text-center text-secondary">
+Dados Registrados
+</div>
+<div class="card-trip-infos">
+
+<center><p id="notice"><%= notice %></p></center>
 
 <p>
-  <strong>Name:</strong>
-  <%= @emmend.name %>
+  <h6><strong>Name:</strong></h6>
+  <mark><%= @emmend.name %></mark>
 </p>
 
 <p>
-  <strong>Descrição:</strong>
-  <%= @emmend.description %>
+  <h6><strong>Descrição:</strong></h6>
+  <mark><%= @emmend.description %></mark>
 </p>
 
 <p>
-  <strong>Tema:</strong>
-  <%= @emmend.thema %>
+  <h6><strong>Tema:</strong></h6>
+  <mark><%= @emmend.thema %></mark>
 </p>
 
 <p>
-  <strong>Projeto:</strong>
-  <%= @emmend.project %>
+  <h6><strong>Projeto:</strong></h6>
+  <mark><%= @emmend.project %></mark>
 </p>
+<br>
 <p>
-  <strong>
-  <%= @emmend.supporters.count %>
-  Apoiadores
-  </strong>
+  <center><strong><%= @emmend.supporters.count %>Apoiadores</strong></center>
 </p>
+<br>
 
-<%= link_to 'Voltar', emmends_path %>
 <% if !@user_is_supporter %>
   <%= simple_form_for [@emmend,@support] do |f| %>
-    <%= f.button :submit,'Apoie Você Também!', class:'btn btn-primary'%>
+    <center><%= f.button :submit,'Apoie Você Também!', class:"btn btn-flat"%></center>
   <% end %>
 <% else %>
-  <a href="#" class="btn btn-primary"> "Obrigada por Apoiar!"</a>
+  <a href="#" class="btn btn-flat"> "Obrigada por Apoiar!"</a>
 <% end %>
+<br>
+<center><%= link_to 'Voltar', emmends_path %><center>
 
+</div>
+</div>
+</div>
+</div>
+</div>
