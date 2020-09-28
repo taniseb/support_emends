@@ -1,87 +1,50 @@
 <div class="container">
-   <div class="row">
-
-<div class="container mt-4">
-   <div class="row"> 
-
-      <div class="col-md-3">
-
-         <div class="card-trip">
+  <div class="row">
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-3 p-4">
+          <div class="card-trip">
             <div class="card-trip-infos ml-2">
-               <div>
+              <div>
                   <img class="card-trip-user avatar-bordered" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/vcanna" />
                   <br>
                   <h2>Victor</h2>
                   <p>(Servidor)</p>
                   <br>
                   <%= link_to 'Criar', new_emmend_path, class: "btn btn-flat" %>
-               </div>
+              </div>
             </div>
-         </div>
-
-      </div>
-
-
-      <div class="col-md-9">
-
-      <%= @emmends.each do |emmend| %>
-
-         <div class="card-trip">
-
-             <div class="text-trip">
-
+          </div>
+        </div>
+        <div class="col-md-9">
+          <% if @user_created.any? %>
+            <% @user_created.each do |emmend| %>
+            <div class="card-trip">
+              <div class="text-trip mr-4">
                 <div class="row">
-
                   <div class="col-md-4">
-
-                     <div>
-                      <% unless @user_is_supporter.empty? %>
-                        <h2>Sua emenda foi curtida por:</h2>
-                         <ul>
-                           <p><% @user_is_supporter.each do |u| %>
-                           <div class="votes">
-                              <li><strong><%= "#{u.emmend.name}" %> </strong><%= "#{u.emmend.description}" %> </li>
-                              <%end%>
-                              <% else %>
-                              <h2>Hora de Curtir Emendas!</h2>
-                              <% end %>
-                           </div>
-                           <p>
-                         </ul>
-                     </div>
-
+                  <h6><center>
+                  <%= emmend.name %>
+                  </center></h6>
+                  <br>
+                  <%= emmend.description %>
                   </div>
-
                   <div class="col-md-8">
-
-                     <div>
-                      <% unless @user_created.empty? %>
-                        <h2>Ficha da Emenda</h2>
-                        <% @user_created.each do |u| %>
-                        <strong><%= "#{u.name}" %></strong>
-                        <mark><%= "#{u.description}" %></mark>
-                        <%end%>
-                        <% else %>
-                        <h2>Hora de Criar Emendas!</h2>
-                        <% end %>
-                         </ul>
-                     </div>
-
+                  <%= "#{emmend.supports.count} número de curtidas"%>
                   </div>
-
                 </div>
-
+              </div>
             </div>
-
-         </div>
-
-         <br>
-
-
-         <%end%>
-
+            <br>
+            <br>
+            <% end %>
+          <% else %>
+              <p>
+              Hora de criar emendas!
+              </p>
+          <% end %>
+        </div>
       </div>
-
-   </div>
-
+    </div>
+  </div>
 </div>
