@@ -69,3 +69,31 @@
   color: #3578E5;
   font-size: 28px;
 }
+
+
+// .btn-call-action {
+//     color: white;
+//     font-weight: bold;
+//     padding: 8px 24px;
+//     border-radius: 4px;
+//     background: #3366FF;
+//     transition: background 0.3s ease;
+//   }
+
+  .btn-call-action:hover {
+    background: #6690FF;
+    color: white;
+}
+
+.btn-call-action {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #3366FF;
+  transition: background 0.3s ease;
+  // margin-left: 70px;
+  margin-top: 72px;
+}
+
+
+
