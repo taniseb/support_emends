@@ -1,26 +1,65 @@
-require 'faker'
-2.times do
-  user = User.new(name: Faker::Name.name, email:  Faker::Internet.email,
-  password: 123456)
-  user.save
-  rand(1..2).times do
+
+require 'json'
+require 'open-uri'
+User.destroy_all
+
+url="https://dadosabertos.camara.leg.br/api/v2/proposicoes?ano=2020&ordem=ASC&ordenarPor=id"
+#https://www.camara.leg.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2020&datApresentacaoIni=&datApresentacaoFim=&parteNomeAutor=&idTipoAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=1"
+
+response = open(url).read
+
+data = JSON.parse(response)
+emmend_total= data["dados"]
+ids=[]
+
+emmend_total.each do |e|
+  ids << e["id"]
+end
+
+def find_thema(id)
+    id_url="https://dadosabertos.camara.leg.br/api/v2/proposicoes/#{id}/temas"
+    response = open(id_url).read
+    subject = JSON.parse(response)
+    emmend_thema= subject["dados"]
+    themas=[]
+    emmend_thema.each do |i|
+      themas << i["tema"]
+    end
+    themas[0]
+    themas[0].blank? ? "Direitos Humanos": themas[0]
+end
+def find_author(id)
+    id_url ="https://dadosabertos.camara.leg.br/api/v2/proposicoes/#{id}/autores"
+    response = open(id_url).read
+    subject = JSON.parse(response)
+    auth = subject["dados"]
+    authors=[]
+    auth.each do |i|
+      authors << i["nome"]
+    end
+    authors[0]
+end
+emmend_total.each do |e|
+    user = User.create!(
+      email: Faker::Internet.email,
+      password: 123456,
+      name: find_author(e["id"])
+      )
     emmend = Emmend.new(
       user_id: user.id,
-      project: " #{ Faker::Number.decimal(l_digits: 1, r_digits: 3)}/2020 ",
-      thema: 'Reformulação da legislação de concessões e Parcerias Público Privadas',
-      # ['Campanha Eleitoral de 2020', 'Reforma Administrativa', 'Privatização das Estatais', 'Queimadas no Pantanal', 'Volta às aulas durante à pandemia', 'Alta nos preços dos alimentos',  'Monopólio das Telecomunicações','5G', 'Meio Ambiente', 'Saúde', 'Segurança Pública', 'Reforma Tributária', 'Prisão em 2º Instância', 'Regulamentação da Regra de Ouro', 'Educação Domiciliar', 'Autonomia do Banco Central', 'Nova Lei de Falências', 'Novo marco legal do mercado de câmbio e capitais', 'Foro Privilegiado', 'PEC Paralela da Previdência', 'Novo marco regulatório do saneamento básico', 'Plano de Equilíbrio Fiscal dos estados', 'MP da Mobilidade Urbana', 'Nova Lei de Licenciamento Ambiental', 'Programa Verde e Amarelo', 'Reformulação da legislação de concessões e Parcerias Público Privadas', 'Distribuição da Vacina do Coronavírus']
-      name: "Concessões e PPP no setor de aviação",
-      description: "O setor de aviação necessita da realização de concessões e das PPPs"
+      project: "#{e["numero"]}/#{e["ano"]}",
+      thema:find_thema(e["id"]),
+      name: "#{e["ementa"]}",
+      description: "#{e["ementaDetalhada"]}"
       )
-    emmend.save
-    Support.create(
-      user_id: User.all.sample.id,
-      emmend_id: Emmend.all.sample.id
-      )
-    end
+    emmend.save!
 end
-puts "Creating a test_user: email: tanise@email.com, password: 123456"
-user = User.new(name:"Tanise", email:  "tanise@email.com",
-  password: 123456)
-user.save
+
+10.times do
+    Support.create!(
+     user_id: User.all.sample.id,
+     emmend_id: Emmend.all.sample.id
+     )
+end
+
 
