@@ -6,48 +6,96 @@
       class: "form-control",
       placeholder: "Encontre uma Emenda!"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
   <% end %>
 
 
 <%= link_to 'Nova Emenda', new_emmend_path %>
 
+<div class="container">
+
+  <div class="cards">
+
+    <% @emmends.each do |emmend| %>
+
+      <div class="card-category">
+
+        <div>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
+
+        </div>
+
+        <div class="my-3" >
+          <h2><%= "#{emmend.project}" %></h2>
+        </div>
+
+        <div class="my-3">
+          <h3><%= link_to "#{emmend.thema}", emmend, class: "btn-show" %></h3>
+        </div>
 
 
 
-<ul>
-  <% @emmends.each do |emmend| %>
-  <li> <%= "#{emmend.name} - Criado por  #{emmend.user.name}" %>
-    <%= link_to 'Show', emmend %>
-      <% if current_user == emmend.user %>
-      <%= link_to 'Edit', edit_emmend_path(emmend) %>
-      <%= link_to 'Destroy', emmend, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+        <div class="row justify-content-center">
+          <div class="col-sm-8 text-center">
+
+            <div class="d-flex flex-wrap justify-content-center pt-4">
+
+              <div class="clickable">
+                <i class="far fa-star"></i>
+              </div>
+
+               <div class="clickable">
+                <i class="far fa-star"></i>
+              </div>
+
+               <div class="clickable">
+                <i class="far fa-star"></i>
+              </div>
+
+               <div class="clickable">
+                <i class="far fa-star"></i>
+              </div>
+
+               <div class="clickable">
+                <i class="far fa-star"></i>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+        <% if current_user == emmend.user %>
+
+          <%= link_to edit_emmend_path(emmend), class: "btn-edit mx -3 my-3" do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+
+          <%= link_to emmend, method: :delete, data: { confirm: 'Você tem certeza que quer mandar esse item para a lixeira ?' }, class: "btn-delete my-3 mx-3" do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+
+        <% end %>
+
+      </div>
     <% end %>
-  </li>
-</ul>
 
+  </div>
 
-
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),
-                                  rgba(0,0,0,0.3)),
-                                  url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  Breakfast
 </div>
 
 
 
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
-  </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Lunch
-  </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
-  </div>
-</div>
+
+
+
+
+
+
+
+
+
 

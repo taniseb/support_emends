@@ -54,23 +54,74 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+  background-color: #3366FF;
+  height: 360px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  text-align: center;
+  color: red;
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
+  box-shadow: 0 0 15px rgba(0,0,0,0.9);
+  padding: 10px;
 
+
+    h2 {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 0 auto;
+      color: white;
+    }
+
+    .btn-show {
+      font-size: 16px;
+      font-weight: lighter;
+      margin: 0 auto;
+      color: white;
+    }
+
+    h3 {
+      font-size: 13px;
+      font-weight: lighter;
+      // margin: 70px;
+      color: white;
+    }
+
+    .clickable {
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .clickable i {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .clickable:hover i {
+      color: #52ACF4;
+    }
+
+    .clickable.active {
+      color: inherit;
+      border-color: inherit;
+
+    }
+
+    .clickable.active i {
+      // color: #52ACF4;
+       color: gold;
+    }
+
+}
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 32px;
 }
 
 .bold {
@@ -111,7 +162,6 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-
 
 
 
