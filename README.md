@@ -1,1 +1,2 @@
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+This was a Rails app generated in Le Wagon's bootcamp made by Hugo, Tanise and Victor. We got the data from brazilian's parliment API for the emmends from the parliment and people could sign in and support the emmends that were preferable for them.
